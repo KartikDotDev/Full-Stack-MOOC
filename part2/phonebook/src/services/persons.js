@@ -1,7 +1,7 @@
 import axios from "axios";
 
 // baseUrl for the server 
-const baseUrl = "http://localhost:3001/persons";
+const baseUrl = "http://localhost:3001/api/persons";
 
 // getAll method for fetching all the data from the server
 const getAll = () => {

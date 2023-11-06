@@ -18,10 +18,10 @@ const App = () => {
   // currentId state for declaring the id of the persons array
   // why state?
   // so that the  
-  const [currentId, setCurrentId] = useState(persons.length + 1)
+  // const [currentId, setCurrentId] = useState(persons.length + 1)
 
 
-  const [errorMessage, setErrorMessage ] = useState('Test');
+  const [Message, setMessage ] = useState(null);
 
 
 
@@ -44,7 +44,7 @@ const App = () => {
     phonebookService.getAll().then(response => {
       console.log(response);
       setPersons(response)
-      setCurrentId(response.length + 1)
+      // setCurrentId(response.length + 1)
     })
   },[])
 
@@ -75,12 +75,12 @@ const App = () => {
   return (
     <div>
       <h2>Phonebook</h2>
-      <Notification style={(!error) ? testStyle: null} message={errorMessage}/>
-      <Filter persons={persons} setShowFilter={setShowFilter} setFilteredPersons={setFilteredPersons} setErrorMessage={setErrorMessage}/>
+      <Notification style={(!error) ? testStyle: null} message={Message}/>
+      <Filter persons={persons} setShowFilter={setShowFilter} setFilteredPersons={setFilteredPersons} setMessage={setMessage}/>
       <h3>Add a new</h3>
-      <PersonForm setError={setError} persons={persons} setPersons={setPersons} currentId={currentId} setCurrentId={setCurrentId} setErrorMessage={setErrorMessage}/>
+      <PersonForm setError={setError} persons={persons} setPersons={setPersons} setMessage={setMessage}/>
       <h3>Numbers</h3>
-      <Persons persons={persons} filteredPersons={filteredPersons} showFilter={showFilter} setPersons={setPersons} setErrorMessage={setErrorMessage}/>
+      <Persons persons={persons} filteredPersons={filteredPersons} showFilter={showFilter} setPersons={setPersons} setMessage={setMessage}/>
     </div>
   )
 

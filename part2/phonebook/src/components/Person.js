@@ -9,14 +9,19 @@ const Person = (props) => {
                 console.log(`${person.name} is deleted`);
                 alert(`${person.name} is deleted`);
                 deletePerson(person.id);
-            }).catch(error => 
-                setErrorMessage(`cannot delete the selected person`)
-                )
+            }).catch(error => {
+                console.log(error);
+                setErrorMessage(error.response.data.error);
+
+            })
         }
+        setTimeout(() => {
+            setErrorMessage(null)
+        }, 5000);
     }
 
     return (
-        <div>
+        <div key={person.id}>
             <p>{person.name} {person.number}</p>
             <button onClick={deleteButtonHandler}>delete</button>
         </div>

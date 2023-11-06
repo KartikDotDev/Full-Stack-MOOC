@@ -13,7 +13,7 @@ const Persons = (props) => {
         <ul>
           {filteredPersons.map(person => (
             <li key={person.id}>
-              <Person person={person} deletePerson={() => deletePerson(person.id)} />
+              <Person key={person.id} person={person} deletePerson={() => deletePerson(person.id)} />
             </li>
           ))}
         </ul>
@@ -26,7 +26,7 @@ const Persons = (props) => {
       <ul>
         {persons.map(person => (
           <li key={person.id}>
-            <Person person={person} deletePerson={() => deletePerson(person.id)}  setErrorMessage={setErrorMessage} />
+            <Person key={person.id} person={person} deletePerson={() => deletePerson(person.id)}  setErrorMessage={setErrorMessage} />
           </li>
         ))}
       </ul>
